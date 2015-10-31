@@ -1,0 +1,23 @@
+<project name="amwj-lab-02" default="default">
+    <description>Lab-02</description>
+    <property name="src" location="src/"/>
+    <property name="lib" location="lib/"/>
+    <property name="build" location="classes/"/>
+    <property name="ant.build.javac.source" value="1.6"/>
+    <property name="ant.build.javac.target" value="1.6"/>
+    <path id="classpath">
+        <fileset dir="${lib}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+    <target name="default" depends="compile"/>
+    <target name="clean">
+        <delete dir="${build}"/>
+    </target>
+    <target name="compile" depends="clean">
+        <mkdir dir="${build}"/>
+        <javac srcdir="${src}" destdir="${build}" target="1.6">
+            <classpath refid="classpath"/>
+        </javac>
+    </target>
+</project>
