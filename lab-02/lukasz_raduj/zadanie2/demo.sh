@@ -1,0 +1,1 @@
+cd ../ && cd classes && java -cp ../lib/bcel-5.2.jar:. Transform Test.class && java Test

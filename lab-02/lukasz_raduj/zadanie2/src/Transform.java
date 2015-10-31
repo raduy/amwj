@@ -96,7 +96,7 @@ public class Transform {
     }
 
     private void registerShutDownHook(InstructionList instructionList) {
-        int shutDownHookMethod = constantPoolGen.addMethodref("InstructionsUseDict", "createShutdownHook", "()V");
+        int shutDownHookMethod = constantPoolGen.addMethodref("InstructionsUsageStatistics", "createShutdownHook", "()V");
         instructionList.insert(new INVOKESTATIC(shutDownHookMethod));
     }
 
@@ -131,7 +131,7 @@ public class Transform {
         instructionList.insert(instructionHandle, factory.createConstant(instructionHandle.getInstruction().getName()));
 
         int incrementUsageCounterMethod = constantPoolGen.addMethodref(
-                InstructionsUseDict.class.getCanonicalName(), "registerUse", "(Ljava/lang/String;)V");
+                InstructionsUsageStatistics.class.getCanonicalName(), "registerUse", "(Ljava/lang/String;)V");
         instructionList.insert(instructionHandle, new INVOKESTATIC(incrementUsageCounterMethod));
     }
 }

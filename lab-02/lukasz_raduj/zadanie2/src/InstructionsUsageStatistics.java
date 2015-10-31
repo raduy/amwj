@@ -2,7 +2,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 
-public class InstructionsUseDict {
+public class InstructionsUsageStatistics {
     private static final Map<String, Long> dict = new TreeMap<String, Long>();
 
     public static void registerUse(String instruction) {
